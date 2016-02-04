@@ -101,4 +101,25 @@ public class Auction
             return null;
         }
     }
+    /**
+     * Metodo que muestra por pantalla los detalles de las subastas 
+     */
+    public void close()
+    {
+        for(Lot lot : lots) 
+        {
+            if (lot.getHighestBid() == null)
+            {
+                System.out.println("No ha habido pujas");
+            
+            }
+            else
+            {
+                Bid highestBid = lot.getHighestBid();
+                System.out.println(lot.toString());
+            
+            }
+        }
+    
+    }
 }
