@@ -11,6 +11,8 @@ public class Auction
 {
     // The list of Lots in this auction.
     private ArrayList<Lot> lots;
+    
+    private ArrayList<Lot> lotsSinPuja;
     // The number that will be given to the next lot entered
     // into this auction.
     private int nextLotNumber;
@@ -21,6 +23,7 @@ public class Auction
     public Auction()
     {
         lots = new ArrayList<Lot>();
+        lotsSinPuja = new ArrayList<Lot>();
         nextLotNumber = 1;
     }
 
@@ -31,6 +34,7 @@ public class Auction
     public void enterLot(String description)
     {
         lots.add(new Lot(nextLotNumber, description));
+        lotsSinPuja.add(new Lot(nextLotNumber, description));
         nextLotNumber++;
     }
 
@@ -71,6 +75,7 @@ public class Auction
                                    highestBid.getValue());
             }
         }
+        lotsSinPuja.remove(lotNumber);
     }
 
     /**
@@ -120,6 +125,14 @@ public class Auction
             
             }
         }
+    
+    }
+    /**
+     * Metodo que te muesta los objetos por los que no hay ninguna subasta
+     */
+    public ArrayList<Lot> getunsold()
+    {
+        return lotsSinPuja;
     
     }
 }
